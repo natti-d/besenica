@@ -1,0 +1,11 @@
+C:\Users\natgd\Desktop\GUI\besenica\besenica\bin\Debug\besenica.exe.config
+C:\Users\natgd\Desktop\GUI\besenica\besenica\bin\Debug\besenica.exe
+C:\Users\natgd\Desktop\GUI\besenica\besenica\bin\Debug\besenica.pdb
+C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.csproj.AssemblyReference.cache
+C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.Properties.Resources.resources
+C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.csproj.GenerateResource.cache
+C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.csproj.CoreCompileInputs.cache
+C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.exe
+C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.pdb
+C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.hangman.resources
+C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.addNewThings.resources
