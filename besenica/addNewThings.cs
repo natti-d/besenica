@@ -16,37 +16,51 @@ namespace besenica
         {
             InitializeComponent();
         }
+        public bool checkLetters(string word)
+        {
+            for(int i = 0; i < word.Length; i++)
+            {
+                MessageBox.Show(word[i].ToString());
+                if (!allData.letters.Contains(word[i]))
+                {
+                    MessageBox.Show("Всички символи трябва да са от българската азбука.", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            return true;
+        }
 
-        //pishi izpylneno zapazvane, napravi proverka, centrirai forma
-        //изскача нова игра, поправи
         private void nwBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                bool exists = false;
-                foreach (Words w in allData.allWords)
+                if (checkLetters(newWordIn.Text))
                 {
-                    if(w.Word == (newWordIn.Text).ToLower())
+                    bool exists = false;
+                    foreach (Words w in allData.allWords)
                     {
-                        exists = true;
-                        MessageBox.Show("Думата вече съществува!");
-                        break;
+                        if (w.Word == (newWordIn.Text).ToLower())
+                        {
+                            exists = true;
+                            MessageBox.Show("Думата вече съществува!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            break;
+                        }
                     }
-                }
-                if (!exists)
-                {
-                    allData.allWords.Add(new Words
+                    if (!exists)
                     {
-                        Word = (newWordIn.Text).ToLower(),
-                        Category = nwCombo.Text
-                    });
-                    wordDelete.Items.Add((newWordIn.Text).ToLower());
-                    MessageBox.Show("Успехно добавихте дума!");
+                        allData.allWords.Add(new Words
+                        {
+                            Word = (newWordIn.Text).ToLower(),
+                            Category = nwCombo.Text
+                        });
+                        wordDelete.Items.Add((newWordIn.Text).ToLower());
+                        MessageBox.Show("Успешно добавихте дума!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -71,31 +85,35 @@ namespace besenica
         {
             try
             {
-                string s = (ncCatIn.Text).ToLower();
-                s = char.ToUpper(s[0]) + s.Substring(1);
+                if (checkLetters(ncCatIn.Text) && checkLetters(ncWordIn.Text))
+                {
 
-                if (allData.categories.Contains(s))
-                {
-                    MessageBox.Show("Категорията вече съществува.");
-                }
-                else
-                {
-                    allData.categories.Add(ncCatIn.Text);
-                    allData.allWords.Add(new Words
+                    string s = (ncCatIn.Text).ToLower();
+                    s = char.ToUpper(s[0]) + s.Substring(1);
+
+                    if (allData.categories.Contains(s))
                     {
-                        Word = (ncWordIn.Text).ToLower(),
-                        Category = s
-                    });
+                        MessageBox.Show("Категорията вече съществува.", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        allData.categories.Add(ncCatIn.Text);
+                        allData.allWords.Add(new Words
+                        {
+                            Word = (ncWordIn.Text).ToLower(),
+                            Category = s
+                        });
 
-                    allData.updateAllCombo(nwCombo);
-                    allData.updateAllCombo(dwCat);
-                    catDelete.Items.Add(s);
-                    MessageBox.Show("Успехно добавихте категория!");
+                        allData.updateAllCombo(nwCombo);
+                        allData.updateAllCombo(dwCat);
+                        catDelete.Items.Add(s);
+                        MessageBox.Show("Успешно добавихте категория!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -143,7 +161,7 @@ namespace besenica
             }
             else
             {
-                MessageBox.Show("Не можете да изтриете думата, защото категорията остава празна.", "Грешка");
+                MessageBox.Show("Не можете да изтриете думата, защото категорията остава празна.", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -165,13 +183,13 @@ namespace besenica
                 }
                 else
                 {
-                    MessageBox.Show("Не можете да изтриете категорията, защото играта остава празна.", "Грешка");
+                    MessageBox.Show("Не можете да изтриете категорията, защото играта остава празна.", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

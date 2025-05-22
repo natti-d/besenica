@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "besenica", "besenica\besenica.csproj", "{9BEBFCC2-45EC-40EF-8854-8915851DAA5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "howToPlay", "howToPlay\howToPlay.csproj", "{0B31233C-4B05-4267-843D-C0EABDBFAA0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9BEBFCC2-45EC-40EF-8854-8915851DAA5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BEBFCC2-45EC-40EF-8854-8915851DAA5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BEBFCC2-45EC-40EF-8854-8915851DAA5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B31233C-4B05-4267-843D-C0EABDBFAA0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B31233C-4B05-4267-843D-C0EABDBFAA0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B31233C-4B05-4267-843D-C0EABDBFAA0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B31233C-4B05-4267-843D-C0EABDBFAA0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

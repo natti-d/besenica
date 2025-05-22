@@ -117,15 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="settingsToGame.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="saveResults.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>183, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>40</value>
-  </metadata>
+  <data name="rules.Text" xml:space="preserve">
+    <value>--- Подготовка ---
+Играчът може:
+- да избере категория от падащото меню "Категория";
+- да избере начин на въвеждане от "Избери въвеждане" в горното меню (в поле с клавиатура или с бутони, оформени като клавиатура);
+- да прегледа списъка с всички думи и категории от "Запиши нови думи/категории" и да го редактира чрез добавяне или изтриване на дума/категория.
+
+--- Начало ---
+Играта започва като програмата си "намисля" дума.
+
+--- Ход на игра ---
+Играчът прави предложение за дадена буква, която думата може да съдържа.
+Ако буквата се съдържа в търсената дума, играта я въвежда на мястото на чертичката (ако се среща няколко пъти, се въвежда на всички места).
+В противен случай, буквата се отбелязва за непозната и играчът започва да се "беси" (това се отбелязва на схема, като тази вляво).
+
+--- Край ---
+Ако играчът е познал всички букви преди да е направил максималния брой грешки, то той печели играта.
+В противен случай, ако играчът е направил 9 грешки, то той бива "обесен" и той губи. Схемата за "обесен" играч изглежда като посочената вляво.
+
+--- Резултат ---
+Познатите думи се отброяват в поле в долния десен ъгъл.
+Играчът може да изтегли текстов файл със списъка от познати и непознати думи от бутона "Изтегли резултат" в менюто.
+
+--- Нова игра ---
+Нова игра настъпва при смяна на категория и редактиране на списъка с категории или думи.
+При печалба или загуба, играчът може да започне нова игра чрез опцията "Нова игра" в менюто.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

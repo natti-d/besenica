@@ -148,12 +148,17 @@ namespace besenica
             for (int i = 0; i < word.Length; i++)
             {
                 guess.Add(word[i]);
+                if (word[i] == '-')
+                {
+                    correctIn.Add('-');
+                    continue;
+                }
                 correctIn.Add('_');
             }
 
             retypeCorrect();
 
-            MessageBox.Show("Започвате нова игра!", "Нова игра");
+            MessageBox.Show("Започвате нова игра!", "Нова игра", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void retypeCorrect()
@@ -191,7 +196,7 @@ namespace besenica
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }            
         }
 
@@ -205,74 +210,82 @@ namespace besenica
             try
             {
                 ch = char.ToLower(ch);
-                if (guess.Contains(ch))
+                if (!allData.letters.Contains(ch))
                 {
-                    if (correctIn.Contains(ch))
-                    {
-                        MessageBox.Show("Вече сте въвели тази буква!");
-                    }
-                    else
-                    {
-                        for (int i = 0; i < guess.Count; i++)
-                        {
-                            if (guess[i] == ch)
-                            {
-
-                                correctIn[i] = ch;
-                            }
-                        }
-                        retypeCorrect();
-                        if (!correctIn.Contains('_'))
-                        {
-                            MessageBox.Show($"Спечелихте играта!\nДумата е {word}.\nПоздравления!", "Победа!");
-                            charInput.ReadOnly = true;
-                            win.Add(new Words
-                            {
-                                Word = word,
-                                Category = categoryCombo.Text.ToString()
-                            });
-                            winCount.Text = win.Count.ToString();
-                        }
-                    }
+                    MessageBox.Show("Въведете буква от българската азбука.", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    charInput.Text = "";
                 }
                 else
                 {
-                    if (wrongIn.Contains(ch))
+                    if (guess.Contains(ch))
                     {
-                        MessageBox.Show("Вече сте въвели тази буква!");
-                    }
-                    else
-                    {
-                        wrongIn.Add(ch);
-                        step++;
-                        TextBox txt = this.Controls.Find("step" + step, true).FirstOrDefault() as TextBox;
-                        if (txt != null)
+                        if (correctIn.Contains(ch))
                         {
-                            txt.Text = ch.ToString();
-                        }
-
-                        PictureBox pic = this.Controls.Find("hanging", true).FirstOrDefault() as PictureBox;
-                        var image = (Image)Properties.Resources.ResourceManager.GetObject("step" + step);
-                        if (image != null)
-                        {
-                            pic.Image = image;
+                            MessageBox.Show("Вече сте въвели тази буква!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
-                            MessageBox.Show("Има проблем с изображението.");
-                            hanging.Image = Properties.Resources.error;
+                            for (int i = 0; i < guess.Count; i++)
+                            {
+                                if (guess[i] == ch)
+                                {
+
+                                    correctIn[i] = ch;
+                                }
+                            }
+                            retypeCorrect();
+                            if (!correctIn.Contains('_'))
+                            {
+                                MessageBox.Show($"Спечелихте играта!\nДумата е {word}.\nПоздравления!", "Победа!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                charInput.ReadOnly = true;
+                                win.Add(new Words
+                                {
+                                    Word = word,
+                                    Category = categoryCombo.Text.ToString()
+                                });
+                                winCount.Text = win.Count.ToString();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (wrongIn.Contains(ch))
+                        {
+                            MessageBox.Show("Вече сте въвели тази буква!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            wrongIn.Add(ch);
+                            step++;
+                            TextBox txt = this.Controls.Find("step" + step, true).FirstOrDefault() as TextBox;
+                            if (txt != null)
+                            {
+                                txt.Text = ch.ToString();
+                            }
+
+                            PictureBox pic = this.Controls.Find("hanging", true).FirstOrDefault() as PictureBox;
+                            var image = (Image)Properties.Resources.ResourceManager.GetObject("step" + step);
+                            if (image != null)
+                            {
+                                pic.Image = image;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Има проблем с изображението.", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                hanging.Image = Properties.Resources.error;
+                            }
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (step == 9)
             {
-                MessageBox.Show($"Загубихте играта!\nДумата е {word}.", "Загуба!");
+                MessageBox.Show($"Загубихте играта!\nДумата е {word}.", "Загуба!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 charInput.ReadOnly = true;
 
                 lose.Add(new Words
@@ -297,46 +310,60 @@ namespace besenica
 
         private void downloadResult_Click(object sender, EventArgs e)
         {
-            string filename = "";
-            saveResults.Title = "Open Text file...";
-            saveResults.FileName = " ";
-            saveResults.Filter = "Text files|*.txt|JPEG|*.jpg|All files|*.*";//"JPEG sdsd |*.jpg,"
-            if (saveResults.ShowDialog() == DialogResult.OK)
+            try
             {
-                filename = saveResults.FileName;
-
-                using (StreamWriter write = new StreamWriter(filename))
+                string filename = "";
+                saveResults.Title = "Open Text file...";
+                saveResults.FileName = " ";
+                saveResults.Filter = "Text files|*.txt|JPEG|*.jpg|All files|*.*";//"JPEG sdsd |*.jpg,"
+                if (saveResults.ShowDialog() == DialogResult.OK)
                 {
-                    write.WriteLine("Познати думи: ");
-                    for (int i = 0; i < allData.categories.Count; i++)
+                    filename = saveResults.FileName;
+
+                    using (StreamWriter write = new StreamWriter(filename))
                     {
-                        write.WriteLine($"{allData.categories[i]} (Категория):");
-                        foreach (Words w in win)
+                        write.WriteLine("Познати думи: ");
+                        for (int i = 0; i < allData.categories.Count; i++)
                         {
-                            if (w.Category == allData.categories[i])
+                            write.WriteLine($"{allData.categories[i]} (Категория):");
+                            foreach (Words w in win)
                             {
-                                write.WriteLine($"- {w.Word.ToString()};");
+                                if (w.Category == allData.categories[i])
+                                {
+                                    write.WriteLine($"- {w.Word.ToString()};");
+                                }
                             }
                         }
-                    }
 
-                    write.WriteLine("\nСгрешени думи:");
-                    for (int i = 0; i < allData.categories.Count; i++)
-                    {
-                        write.WriteLine($"{allData.categories[i]} (Категория):");
-                        foreach (Words w in lose)
+                        write.WriteLine("\nСгрешени думи:");
+                        for (int i = 0; i < allData.categories.Count; i++)
                         {
-                            if (w.Category == allData.categories[i])
+                            write.WriteLine($"{allData.categories[i]} (Категория):");
+                            foreach (Words w in lose)
                             {
-                                write.WriteLine($"- {w.Word.ToString()};");
+                                if (w.Category == allData.categories[i])
+                                {
+                                    write.WriteLine($"- {w.Word.ToString()};");
+                                }
                             }
                         }
-                    }
 
-                    write.WriteLine($"\nДата на изтегляне: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
-                    MessageBox.Show($"Резултатите са запазени в {filename}.", "Запазване на резултат");
+                        write.WriteLine($"\nДата на изтегляне: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
+                    }
+                    MessageBox.Show($"Резултатите са запазени в {filename}.", "Запазване на резултат", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+
+        private void howToPlayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            howToPlay howToPlay = new howToPlay();
+            howToPlay.Show();
         }
     }
 }

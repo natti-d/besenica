@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.newWord = new System.Windows.Forms.Panel();
-            this.nwlbl = new System.Windows.Forms.Label();
-            this.nwWord = new System.Windows.Forms.Label();
-            this.newWordIn = new System.Windows.Forms.TextBox();
-            this.nwCat = new System.Windows.Forms.Label();
-            this.nwCombo = new System.Windows.Forms.ComboBox();
             this.nwBtn = new System.Windows.Forms.Button();
+            this.nwCombo = new System.Windows.Forms.ComboBox();
+            this.nwCat = new System.Windows.Forms.Label();
+            this.newWordIn = new System.Windows.Forms.TextBox();
+            this.nwWord = new System.Windows.Forms.Label();
+            this.nwlbl = new System.Windows.Forms.Label();
             this.newCategory = new System.Windows.Forms.Panel();
+            this.ncWordIn = new System.Windows.Forms.TextBox();
             this.ncBtn = new System.Windows.Forms.Button();
             this.ncWord = new System.Windows.Forms.Label();
             this.ncCatIn = new System.Windows.Forms.TextBox();
             this.ncCat = new System.Windows.Forms.Label();
             this.nclbl = new System.Windows.Forms.Label();
-            this.ncWordIn = new System.Windows.Forms.TextBox();
             this.backToGame = new System.Windows.Forms.Button();
             this.catDelete = new System.Windows.Forms.ListBox();
             this.deleteCat = new System.Windows.Forms.Button();
@@ -50,8 +50,8 @@
             this.dwlblList = new System.Windows.Forms.Label();
             this.wordDelete = new System.Windows.Forms.ListBox();
             this.dw = new System.Windows.Forms.Panel();
-            this.dcLbl = new System.Windows.Forms.Label();
             this.wDelete = new System.Windows.Forms.Button();
+            this.dcLbl = new System.Windows.Forms.Label();
             this.dc = new System.Windows.Forms.Panel();
             this.newWord.SuspendLayout();
             this.newCategory.SuspendLayout();
@@ -73,33 +73,25 @@
             this.newWord.Size = new System.Drawing.Size(436, 233);
             this.newWord.TabIndex = 0;
             // 
-            // nwlbl
+            // nwBtn
             // 
-            this.nwlbl.AutoSize = true;
-            this.nwlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nwlbl.Location = new System.Drawing.Point(3, 0);
-            this.nwlbl.Name = "nwlbl";
-            this.nwlbl.Size = new System.Drawing.Size(170, 20);
-            this.nwlbl.TabIndex = 0;
-            this.nwlbl.Text = "Въведи Нова Дума";
+            this.nwBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nwBtn.Location = new System.Drawing.Point(135, 186);
+            this.nwBtn.Name = "nwBtn";
+            this.nwBtn.Size = new System.Drawing.Size(172, 43);
+            this.nwBtn.TabIndex = 5;
+            this.nwBtn.Text = "Въведи дума";
+            this.nwBtn.UseVisualStyleBackColor = true;
+            this.nwBtn.Click += new System.EventHandler(this.nwBtn_Click);
             // 
-            // nwWord
+            // nwCombo
             // 
-            this.nwWord.AutoSize = true;
-            this.nwWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nwWord.Location = new System.Drawing.Point(12, 39);
-            this.nwWord.Name = "nwWord";
-            this.nwWord.Size = new System.Drawing.Size(57, 20);
-            this.nwWord.TabIndex = 1;
-            this.nwWord.Text = "Дума:";
-            // 
-            // newWordIn
-            // 
-            this.newWordIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newWordIn.Location = new System.Drawing.Point(7, 62);
-            this.newWordIn.Name = "newWordIn";
-            this.newWordIn.Size = new System.Drawing.Size(418, 36);
-            this.newWordIn.TabIndex = 2;
+            this.nwCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nwCombo.FormattingEnabled = true;
+            this.nwCombo.Location = new System.Drawing.Point(6, 139);
+            this.nwCombo.Name = "nwCombo";
+            this.nwCombo.Size = new System.Drawing.Size(417, 37);
+            this.nwCombo.TabIndex = 4;
             // 
             // nwCat
             // 
@@ -111,25 +103,33 @@
             this.nwCat.TabIndex = 3;
             this.nwCat.Text = "Категория:";
             // 
-            // nwCombo
+            // newWordIn
             // 
-            this.nwCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nwCombo.FormattingEnabled = true;
-            this.nwCombo.Location = new System.Drawing.Point(6, 139);
-            this.nwCombo.Name = "nwCombo";
-            this.nwCombo.Size = new System.Drawing.Size(417, 37);
-            this.nwCombo.TabIndex = 4;
+            this.newWordIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newWordIn.Location = new System.Drawing.Point(7, 62);
+            this.newWordIn.Name = "newWordIn";
+            this.newWordIn.Size = new System.Drawing.Size(418, 36);
+            this.newWordIn.TabIndex = 2;
             // 
-            // nwBtn
+            // nwWord
             // 
-            this.nwBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nwBtn.Location = new System.Drawing.Point(135, 186);
-            this.nwBtn.Name = "nwBtn";
-            this.nwBtn.Size = new System.Drawing.Size(172, 43);
-            this.nwBtn.TabIndex = 5;
-            this.nwBtn.Text = "Въведи дума";
-            this.nwBtn.UseVisualStyleBackColor = true;
-            this.nwBtn.Click += new System.EventHandler(this.nwBtn_Click);
+            this.nwWord.AutoSize = true;
+            this.nwWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nwWord.Location = new System.Drawing.Point(12, 39);
+            this.nwWord.Name = "nwWord";
+            this.nwWord.Size = new System.Drawing.Size(57, 20);
+            this.nwWord.TabIndex = 1;
+            this.nwWord.Text = "Дума:";
+            // 
+            // nwlbl
+            // 
+            this.nwlbl.AutoSize = true;
+            this.nwlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nwlbl.Location = new System.Drawing.Point(3, 0);
+            this.nwlbl.Name = "nwlbl";
+            this.nwlbl.Size = new System.Drawing.Size(182, 20);
+            this.nwlbl.TabIndex = 0;
+            this.nwlbl.Text = "Въведи нова дума";
             // 
             // newCategory
             // 
@@ -144,6 +144,14 @@
             this.newCategory.Name = "newCategory";
             this.newCategory.Size = new System.Drawing.Size(436, 263);
             this.newCategory.TabIndex = 6;
+            // 
+            // ncWordIn
+            // 
+            this.ncWordIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ncWordIn.Location = new System.Drawing.Point(7, 140);
+            this.ncWordIn.Name = "ncWordIn";
+            this.ncWordIn.Size = new System.Drawing.Size(418, 36);
+            this.ncWordIn.TabIndex = 6;
             // 
             // ncBtn
             // 
@@ -187,20 +195,12 @@
             // nclbl
             // 
             this.nclbl.AutoSize = true;
-            this.nclbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nclbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nclbl.Location = new System.Drawing.Point(3, 0);
             this.nclbl.Name = "nclbl";
-            this.nclbl.Size = new System.Drawing.Size(216, 20);
+            this.nclbl.Size = new System.Drawing.Size(232, 20);
             this.nclbl.TabIndex = 0;
-            this.nclbl.Text = "Въведи Нова Категория";
-            // 
-            // ncWordIn
-            // 
-            this.ncWordIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ncWordIn.Location = new System.Drawing.Point(7, 140);
-            this.ncWordIn.Name = "ncWordIn";
-            this.ncWordIn.Size = new System.Drawing.Size(418, 36);
-            this.ncWordIn.TabIndex = 6;
+            this.nclbl.Text = "Въведи нова категория";
             // 
             // backToGame
             // 
@@ -289,16 +289,6 @@
             this.dw.Size = new System.Drawing.Size(480, 299);
             this.dw.TabIndex = 12;
             // 
-            // dcLbl
-            // 
-            this.dcLbl.AutoSize = true;
-            this.dcLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dcLbl.Location = new System.Drawing.Point(14, 34);
-            this.dcLbl.Name = "dcLbl";
-            this.dcLbl.Size = new System.Drawing.Size(284, 20);
-            this.dcLbl.TabIndex = 13;
-            this.dcLbl.Text = "Избери категория за изтриване:";
-            // 
             // wDelete
             // 
             this.wDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -309,6 +299,16 @@
             this.wDelete.Text = "Изтрий дума";
             this.wDelete.UseVisualStyleBackColor = true;
             this.wDelete.Click += new System.EventHandler(this.wDelete_Click);
+            // 
+            // dcLbl
+            // 
+            this.dcLbl.AutoSize = true;
+            this.dcLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dcLbl.Location = new System.Drawing.Point(14, 34);
+            this.dcLbl.Name = "dcLbl";
+            this.dcLbl.Size = new System.Drawing.Size(284, 20);
+            this.dcLbl.TabIndex = 13;
+            this.dcLbl.Text = "Избери категория за изтриване:";
             // 
             // dc
             // 

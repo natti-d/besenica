@@ -9,3 +9,4 @@ C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.exe
 C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.pdb
 C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.hangman.resources
 C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.addNewThings.resources
+C:\Users\natgd\Desktop\GUI\besenica\besenica\obj\Debug\besenica.howToPlay.resources

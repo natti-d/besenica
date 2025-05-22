@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(hangman));
             this.settingsToGame = new System.Windows.Forms.MenuStrip();
             this.restartGame = new System.Windows.Forms.ToolStripMenuItem();
             this.chooseInput = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,8 +88,9 @@
             this.correctLbl = new System.Windows.Forms.Label();
             this.winlbl = new System.Windows.Forms.Label();
             this.winCount = new System.Windows.Forms.TextBox();
-            this.hanging = new System.Windows.Forms.PictureBox();
             this.saveResults = new System.Windows.Forms.SaveFileDialog();
+            this.howToPlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hanging = new System.Windows.Forms.PictureBox();
             this.settingsToGame.SuspendLayout();
             this.keyboardInput.SuspendLayout();
             this.buttonInput.SuspendLayout();
@@ -103,7 +105,8 @@
             this.restartGame,
             this.chooseInput,
             this.newMenu,
-            this.downloadResult});
+            this.downloadResult,
+            this.howToPlayToolStripMenuItem});
             this.settingsToGame.Location = new System.Drawing.Point(0, 0);
             this.settingsToGame.Name = "settingsToGame";
             this.settingsToGame.Size = new System.Drawing.Size(957, 31);
@@ -123,8 +126,8 @@
             this.keyboardMenu,
             this.buttonMenu});
             this.chooseInput.Name = "chooseInput";
-            this.chooseInput.Size = new System.Drawing.Size(177, 27);
-            this.chooseInput.Text = "Избери Въвеждане";
+            this.chooseInput.Size = new System.Drawing.Size(176, 27);
+            this.chooseInput.Text = "Избери въвеждане";
             // 
             // keyboardMenu
             // 
@@ -151,7 +154,7 @@
             // 
             this.downloadResult.Name = "downloadResult";
             this.downloadResult.Size = new System.Drawing.Size(159, 27);
-            this.downloadResult.Text = "Изтегли Резултат";
+            this.downloadResult.Text = "Изтегли резултат";
             this.downloadResult.Click += new System.EventHandler(this.downloadResult_Click);
             // 
             // wrongLbl
@@ -159,11 +162,11 @@
             this.wrongLbl.AutoSize = true;
             this.wrongLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wrongLbl.ForeColor = System.Drawing.Color.Red;
-            this.wrongLbl.Location = new System.Drawing.Point(12, 490);
+            this.wrongLbl.Location = new System.Drawing.Point(12, 495);
             this.wrongLbl.Name = "wrongLbl";
-            this.wrongLbl.Size = new System.Drawing.Size(215, 29);
+            this.wrongLbl.Size = new System.Drawing.Size(213, 29);
             this.wrongLbl.TabIndex = 2;
-            this.wrongLbl.Text = "Непознати Букви";
+            this.wrongLbl.Text = "Непознати букви";
             // 
             // categoryLbl
             // 
@@ -846,6 +849,13 @@
             this.winCount.Text = "0";
             this.winCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // howToPlayToolStripMenuItem
+            // 
+            this.howToPlayToolStripMenuItem.Name = "howToPlayToolStripMenuItem";
+            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(131, 27);
+            this.howToPlayToolStripMenuItem.Text = "Как се играе?";
+            this.howToPlayToolStripMenuItem.Click += new System.EventHandler(this.howToPlayToolStripMenuItem_Click);
+            // 
             // hanging
             // 
             this.hanging.Image = global::besenica.Properties.Resources.step0;
@@ -881,6 +891,7 @@
             this.Controls.Add(this.wrongLbl);
             this.Controls.Add(this.hanging);
             this.Controls.Add(this.settingsToGame);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.settingsToGame;
             this.Name = "hangman";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -961,6 +972,7 @@
         private System.Windows.Forms.TextBox winCount;
         public System.Windows.Forms.ComboBox categoryCombo;
         private System.Windows.Forms.SaveFileDialog saveResults;
+        private System.Windows.Forms.ToolStripMenuItem howToPlayToolStripMenuItem;
     }
 }
 
